@@ -26,6 +26,7 @@ function Home() {
         {datas.map((data) => (
           <div key={data.id}>
             <Movie
+              id={data.id}
               poster={data.poster}
               genres={data.genres}
               title={data.title}
