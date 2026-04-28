@@ -6,23 +6,26 @@ function App() {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     // 서버로부터 데이터 딱 한번만 가져오기
-    fetch("http://localhost:3000/movies")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1350")
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
-        setDatas(json);
+        setDatas(json.results);
         setIsLoading(false);
       });
   }, []);
 
+  console.log(datas);
+
   return (
     <>
-      <h1>Movie json-server API</h1>
+      <h1>Pokemon API</h1>
       <hr />
       {isLoading ? <p>IsLoading...</p> : null}
       <ul>
         {datas.map((data) => (
-          <li key={data.id}>{data.title}</li>
+          <li>
+            {data.name} <br /> {data.url}
+          </li>
         ))}
       </ul>
     </>
