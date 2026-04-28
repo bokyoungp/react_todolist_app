@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Movie from "./Movie";
 import "./App.css";
 
 function App() {
@@ -25,13 +26,11 @@ function App() {
       <div>
         {datas.map((data) => (
           <div key={data.id}>
-            {data.title}
-            <img src={data.poster} alt="poster" width="400px" height="600px" />
-            <ul>
-              {data.genres.map((genre, index) => (
-                <li key={index}>{genre}</li>
-              ))}
-            </ul>
+            <Movie
+              poster={data.poster}
+              genres={data.genres}
+              title={data.title}
+            />
           </div>
         ))}
       </div>
