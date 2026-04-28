@@ -24,15 +24,15 @@ function App() {
       {isLoading ? <p>IsLoading...</p> : null}
       <div>
         {datas.map((data) => (
-          <>
-            <div key={data.id}>{data.title}</div>
+          <div key={data.id}>
+            {data.title}
             <img src={data.poster} alt="poster" width="400px" height="600px" />
             <ul>
               {data.genres.map((genre, index) => (
                 <li key={index}>{genre}</li>
               ))}
             </ul>
-          </>
+          </div>
         ))}
       </div>
       <ul></ul>
