@@ -6,9 +6,9 @@ function Home() {
   const [datas, setDatas] = useState([]);
 
   const getMovies = async () => {
-    const response = await fetch("http://localhost:3000/movies");
+    const response = await fetch(`${import.meta.env.BASE_URL}db.json`);
     const json = await response.json();
-    setDatas(json);
+    setDatas(json.movies ?? []);
     setIsLoading(false);
   };
 

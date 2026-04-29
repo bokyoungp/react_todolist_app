@@ -5,13 +5,14 @@ function Detail() {
   const [movie, setMovie] = useState({});
   const { id } = useParams();
   const getMovie = async () => {
-    const response = await fetch(`http://localhost:3000/movies/${id}`);
+    const response = await fetch(`${import.meta.env.BASE_URL}db.json`);
     const json = await response.json();
-    setMovie(json);
+    const seletedMovie = json.movies?.find((item) => item.id === id) ?? null;
+    setMovie(seletedMovie);
   };
   useEffect(() => {
     getMovie();
-  }, []);
+  }, [id]);
 
   return (
     <div>
